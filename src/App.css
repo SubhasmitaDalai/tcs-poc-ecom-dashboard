@@ -1,0 +1,103 @@
+/* Layout splitting into 3 equal or structured sections */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 16px;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.panel {
+  border: 2px solid #333;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  min-height: 350px;
+}
+
+/* Part 1 - Product Description */
+.product-description-panel h2 {
+  margin-top: 0;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+/* Part 2 - Middle Grid (4 cards: 2x2 matrix) */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+}
+
+.product-card {
+  border: 2px solid #555;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 120px;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+.product-card.active-card {
+  outline: 4px solid #1e90ff;
+}
+
+/* Threshold Colors based on values */
+.status-green {
+  background-color: #1ad04b;
+  color: #1b4332;
+}
+
+.status-yellow {
+  background-color: #edd609;
+  color: #1b4332;
+}
+
+.status-red {
+  background-color: #e3091b;
+  color: #1b4332;
+}
+
+/* Part 3 - Matrix Panel */
+.matrix-panel select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+.color-legend {
+  margin-top: 32px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.legend-item .box {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border: 1px solid #333;
+  border-radius: 3px;
+}
+
+.legend-item.green .box { background-color: #1ad04b; }
+.legend-item.yellow .box { background-color: #edd609; }
+.legend-item.red .box { background-color: #e3091b; }
